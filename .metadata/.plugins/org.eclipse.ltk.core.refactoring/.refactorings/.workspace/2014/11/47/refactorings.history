@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ass2/src/InComingJunction&apos;" deleteContents="false" description="Delete resource &apos;ass2/src/InComingJunction&apos;" element1="/ass2/src/InComingJunction" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1416470969256"/>
+</session>

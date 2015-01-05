@@ -1,0 +1,13 @@
+#include "../include/InComingJunction.h"
+#include "../include/Junction"
+
+
+InComingJunction::InComingJunction(){
+
+}
+InComingJunction::InComingJunction(const Junction& junction, int timeSlice){
+
+}
+InComingJunction::~InComingJunction(){
+
+}

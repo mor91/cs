@@ -1,0 +1,112 @@
+/* 
+ * File:   main.cpp
+ * Author: mor
+ *
+ * Created on November 8, 2014, 11:24 AM
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <sstream>
+
+#include "BusyRoute.h"
+#include "Road.h"
+using namespace std;
+
+vector<string> &split(const string &s, char delim, vector<string> &elems) {
+    stringstream ss(s);
+    string item;
+    while (getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+
+vector<string> split(const string &s, char delim) {
+    vector<string> elems;
+    split(s, delim, elems);
+    return elems;
+}
+double stressFactor(vector<BusyRoute*> busyRoutes, Road road){
+    string junc1=road.getJunction1();
+    string junc2=road.getJunction2();
+    int noPassingRoutes=0;
+    double stressFactor=0;
+    for (int i = 0; i < busyRoutes.size(); i++) {
+        for (int j = 0; j < (*busyRoutes[i]).getJunctions().size()-1; j++) {
+            if((junc1==(*busyRoutes[i]).getJunctions()[j])&&(junc2==(*busyRoutes[i]).getJunctions()[j+1])){
+                noPassingRoutes++;
+            }
+            if((junc2==(*busyRoutes[i]).getJunctions()[j])&&(junc1==(*busyRoutes[i]).getJunctions()[j+1])){
+                noPassingRoutes++;
+            }
+        }
+        
+        
+    }
+    stressFactor=((double)noPassingRoutes)/((double)road.getRoadLength());
+    return stressFactor;
+
+
+    
+
+}
+
+
+/*
+ * 
+ */
+int main() {
+    string line;
+    ifstream routes;
+    vector<Road*> roads;
+    vector<BusyRoute*> busyRoutes;
+    vector<string> elems;
+    routes.open("/home/workspace/Assignment1/src/Routes.conf",fstream::in);
+    while(!routes.eof()){
+        line.clear();
+        getline(routes,line);
+        if(line.length()!=0){
+            elems=split(line,',');
+            cout << line << endl;
+            busyRoutes.push_back(new BusyRoute(elems));
+        }
+    }
+    routes.close();
+    ifstream roadsStream;
+    roadsStream.open("/home/workspace/Assignment1/src/Roads.conf",fstream::in);
+    
+    while(!roadsStream.eof()){
+        line.clear();
+        getline(roadsStream,line);
+        if(line.length()!=0){
+            roads.push_back(new Road(split(line,',')));
+            cout << "line: " << line << endl ; 
+        }
+    }
+    roadsStream.close();
+    for (int i = 0; i < roads.size(); i++) {
+        (*roads[i]).setStressFactor(stressFactor(busyRoutes,(*roads[i])));
+        cout << "junc1:" << (*roads[i]).getJunction1() << endl;
+        cout << "junc2:" << (*roads[i]).getJunction2() << endl;
+        cout << "stressFactor:" << (*roads[i]).getStressFactor() << endl ;       
+        cout<< "" << endl;     
+    }
+
+    
+    for (int i = 0; i < roads.size(); i++) {
+        delete roads[i];
+    }
+    for (int i = 0; i < busyRoutes.size(); i++) {
+        delete busyRoutes[i];
+    }
+    
+    
+    
+    return 0;
+}
+

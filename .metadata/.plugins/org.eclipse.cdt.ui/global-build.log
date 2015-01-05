@@ -1,0 +1,19 @@
+12:09:47 **** Incremental Build of configuration Debug for project practice4 ****
+make all 
+Building file: ../src/ini.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ini.d" -MT"src/ini.d" -o "src/ini.o" "../src/ini.cpp"
+../src/ini.cpp:2:17: fatal error: ini.h: No such file or directory
+ #include <ini.h>
+                 ^
+compilation terminated.
+make: *** [src/ini.o] Error 1
+
+Invoking autoreconf in build directory: /users/studs/bsc/2015/mormichl/workspace/CarDrivingSim
+
+sh -c "autoreconf -i" 
+autoreconf: 'configure.ac' or 'configure.in' is required
+
+Configuration failed with error
+Build stopped
+()

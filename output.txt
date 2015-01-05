@@ -1,0 +1,75 @@
+j1,j2,j3,j4
+j1,j2,j3,j5,j6,j8
+j6,j8,j5
+j4,j3,j7,j8
+j6,j2,j3,j4
+line: j1,j2,300
+line: j2,j3,100
+line: j2,j1,300
+line: j1,j4,100
+line: j3,j4,300
+line: j4,j3,300
+line: j3,j5,150
+line: j3,j7,50
+line: j7,j8,150
+line: j5,j8,80
+line: j8,j5,75
+line: j6,j2,700
+line: j5,j6,20
+line: j6,j8,70
+junc1:j1
+junc2:j2
+stressFactor:0.00666667
+
+junc1:j2
+junc2:j3
+stressFactor:0.03
+
+junc1:j2
+junc2:j1
+stressFactor:0.00666667
+
+junc1:j1
+junc2:j4
+stressFactor:0
+
+junc1:j3
+junc2:j4
+stressFactor:0.01
+
+junc1:j4
+junc2:j3
+stressFactor:0.01
+
+junc1:j3
+junc2:j5
+stressFactor:0.00666667
+
+junc1:j3
+junc2:j7
+stressFactor:0.02
+
+junc1:j7
+junc2:j8
+stressFactor:0.00666667
+
+junc1:j5
+junc2:j8
+stressFactor:0.0125
+
+junc1:j8
+junc2:j5
+stressFactor:0.0133333
+
+junc1:j6
+junc2:j2
+stressFactor:0.00142857
+
+junc1:j5
+junc2:j6
+stressFactor:0.05
+
+junc1:j6
+junc2:j8
+stressFactor:0.0285714
+

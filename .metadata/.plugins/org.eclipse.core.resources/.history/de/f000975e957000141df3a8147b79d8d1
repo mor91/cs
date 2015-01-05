@@ -1,0 +1,27 @@
+/* 
+ * File:   Car.h
+ * Author: chen
+ *
+ * Created on November 15, 2014, 2:27 PM
+ */
+
+#ifndef CAR_H
+#define	CAR_H
+#include <string>
+
+class Car {
+    std::string _carID;
+    std::string _roadPlan;
+    bool _goodCondition;
+    int _distanceFromBeginningJunction;
+public:
+
+    Car(const std::string carID,const std::string roadPlan);
+    virtual ~Car();
+    
+
+};
+
+#endif	/* CAR_H */
+
+

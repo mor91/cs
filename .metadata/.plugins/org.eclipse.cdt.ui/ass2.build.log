@@ -1,0 +1,6 @@
+12:02:18 **** Incremental Build of configuration Build (GNU) for project ass2 ****
+make all 
+make: *** No rule to make target `all'.  Stop.
+
+12:02:18 Build Finished (took 65ms)
+
